@@ -1,6 +1,12 @@
-const http = require('http');
+FROM node:21-alpine
 
-http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('govindhan\narun\nmoinca');
-}).listen(8080, '0.0.0.0');
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["npm", "start"]
