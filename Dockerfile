@@ -1,12 +1,6 @@
-FROM node:21-alpine
+const http = require('http');
 
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 8080
-
-CMD ["npm", "start"]
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('govindhan\narun\nmoinca');
+}).listen(8080, '0.0.0.0');
