@@ -61,18 +61,25 @@ Save and exit.
 docker login
 
 14. Build Docker image
-docker build -t <dockerhub-username>/<repo-name>:latest .
+docker build -t <dockerhub-username>/<repo-name>:latest . 
 
-15. Verify image
+15.Sudo usermod -aG docker $USER
+
+16.newgrp docker
+
+17.docker build -t (dockerhubrepo):latest .
+
+
+18. Verify image
 docker images
 
-16. Run container
+19. Run container
 docker run -d -p 8080:8080 <dockerhub-username>/<repo-name>:latest
 
-17. Check running container
+20. Check running container
 docker ps
 
-18. Push image to Docker Hub
+21 Push image to Docker Hub
 docker push <dockerhub-username>/<repo-name>:latest
 
 Browser Output
@@ -87,6 +94,8 @@ Output:
 govindhan
 arun
 moinca
+ramya
+
 
 
 
